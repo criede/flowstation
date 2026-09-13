@@ -209,8 +209,6 @@ pub fn build_ndb(
 mod tests {
     use tetra_core::bitbuffer::BitBuffer;
 
-    use crate::phy::components::train_consts::*;
-
     use super::*;
 
     #[test]

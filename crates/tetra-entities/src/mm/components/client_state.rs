@@ -588,17 +588,17 @@ mod tests {
         // An unknown ISSI is never "heard".
         assert!(!mgr.heard_on_air_within(999, Duration::from_secs(300)));
 
-        // After a little real time, a very short window reports "not heard" (would fall through to
-        // the COMMAND/teardown path), while a generous window still reports "present".
-        std::thread::sleep(Duration::from_millis(15));
-        assert!(!mgr.heard_on_air_within(100, Duration::from_millis(5)));
-        assert!(mgr.heard_on_air_within(100, Duration::from_secs(300)));
+        // Set the prior observation explicitly so scheduler delays cannot make this test flaky.
+        mgr.clients.get_mut(&100).unwrap().last_uplink_time = std::time::Instant::now() - Duration::from_secs(600);
+        assert!(!mgr.heard_on_air_within(100, Duration::from_secs(300)));
+        assert!(mgr.heard_on_air_within(100, Duration::from_secs(1800)));
 
         // A fresh uplink burst (RSSI measurement) re-stamps the radio as heard right now.
-        std::thread::sleep(Duration::from_millis(15));
-        assert!(!mgr.heard_on_air_within(100, Duration::from_millis(5)));
+        let before = std::time::Instant::now();
         mgr.update_client_rssi(100, -60.0);
-        assert!(mgr.heard_on_air_within(100, Duration::from_millis(5)));
+        let observed = mgr.clients.get(&100).unwrap().last_uplink_time;
+        assert!(observed >= before && observed <= std::time::Instant::now());
+        assert!(mgr.heard_on_air_within(100, Duration::from_secs(300)));
     }
 
     /// The T351 COMMAND is gated to a sleeping EE radio's wake window so it is never missed

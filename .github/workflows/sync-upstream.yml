@@ -1,0 +1,40 @@
+name: Sync upstream
+
+on:
+  schedule:
+    - cron: '17 2 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: sync-upstream-main
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    if: github.repository == 'criede/flowstation'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    outputs:
+      source_sha: ${{ steps.sync.outputs.sha }}
+      changed: ${{ steps.sync.outputs.changed }}
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          ref: main
+          fetch-depth: 0
+          token: ${{ secrets.UPSTREAM_SYNC_TOKEN || github.token }}
+      - name: Merge upstream main
+        id: sync
+        run: bash .github/scripts/sync-upstream.sh
+  build-and-publish:
+    needs: sync
+    if: github.event_name != 'schedule' || needs.sync.outputs.changed == 'true'
+    uses: ./.github/workflows/build-and-publish.yml
+    with:
+      source_sha: ${{ needs.sync.outputs.source_sha }}
+    secrets: inherit

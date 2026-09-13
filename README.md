@@ -86,6 +86,17 @@ Built in Rust on top of [tetra-bluestation](https://github.com/MidnightBlueLabs/
 
 ## Installation
 
+### DB9CR fork: Debian packages and development
+
+This fork tracks `razvanzeces/flowstation:main` daily and builds Rust packages for
+Debian Bookworm/Trixie on AMD64 and ARM64. See the
+[release and APT setup guide](Docs/RELEASES.md),
+[development guide](Docs/DEVELOPMENT.md), and [AI agent instructions](AGENTS.md).
+After the first successful publication, packages are available at
+[the FlowStation APT repository](https://criede.github.io/flowstation/).
+The package includes the existing Debian systemd unit and leaves the service
+disabled until the operator configures and enables it.
+
 Full step-by-step installation guide (Raspberry Pi + LimeSDR): **[install.flowstation.dev](https://install.flowstation.dev)**
 
 ### Quick start (from source)
