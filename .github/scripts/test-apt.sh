@@ -22,6 +22,15 @@ for suite in bookworm trixie; do
   done
 done
 bash "$script_dir/publish-apt.sh"
+grep -q 'href="dists/"' "$REPO_DIR/index.html"
+grep -q 'href="pool/"' "$REPO_DIR/index.html"
+while IFS= read -r -d '' directory; do
+  test -f "$directory/index.html"
+done < <(find "$REPO_DIR/dists" "$REPO_DIR/pool" -type d -print0)
+grep -q 'href="../">APT-Repository</a>' "$REPO_DIR/dists/index.html"
+grep -q 'href="binary-amd64/"' "$REPO_DIR/dists/bookworm/main/index.html"
+grep -q 'flowstation_0.4.0-1~bookworm_amd64.deb' \
+  "$REPO_DIR/pool/bookworm/main/f/flowstation/index.html"
 for suite in bookworm trixie; do
   gpgv --keyring "$REPO_DIR/flowstation-archive-keyring.gpg" "$REPO_DIR/dists/$suite/InRelease"
   gpgv --keyring "$REPO_DIR/flowstation-archive-keyring.gpg" \

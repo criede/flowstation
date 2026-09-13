@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Add linked directory listings throughout the published `dists/` and `pool/`
+  trees and link both browsers from the APT repository home page.
 - Add Rust-focused agent instructions, development documentation and pinned
   Rust 1.98.1 tooling.
 - Track razvanzeces/flowstation main daily, preserve fork automation and stop

@@ -84,6 +84,11 @@ flowstation-archive-keyring.gpg   binary public key
 index.html                      installation instructions
 ```
 
+Every directory below `dists/` and `pool/` also receives a static `index.html`
+with links to its parent, children and files. The top-level page links to both
+trees. These browsing pages are generated after APT metadata is signed and are
+excluded from `Release` checksums, so regenerating them cannot invalidate APT.
+
 Daily retention is shared by release and pool cleanup: every build under 7 days,
 newest per ISO week until 30 days, newest per month until 365 days. Stable
 versions and the latest daily per suite/architecture are retained. Unrecognized

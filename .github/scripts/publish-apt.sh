@@ -26,6 +26,9 @@ for package in "${packages[@]}"; do
 done
 python3 "$script_dir/retention.py" pool "$REPO_DIR"
 cd "$REPO_DIR"
+# These browsing aids are generated after signing and must never become part of
+# APT's signed Release file: their contents change as the directory tree changes.
+find dists pool -type f -name index.html -delete 2>/dev/null || true
 gpg --batch --armor --export "$GPG_KEY_FPR" > pubkey.gpg
 test -s pubkey.gpg
 gpg --batch --export "$GPG_KEY_FPR" > flowstation-archive-keyring.gpg
@@ -55,4 +58,5 @@ for suite in bookworm trixie; do
   gpg --batch --verify "dists/$suite/InRelease"
 done
 cp "$script_dir/apt-index.html" index.html
+python3 "$script_dir/generate-directory-indexes.py" "$REPO_DIR"
 touch .nojekyll
