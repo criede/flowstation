@@ -58,3 +58,23 @@ Description: FlowStation software-defined TETRA base station
  SoapySDR-supported SDR (SXceiver) on the device. Asterisk SIP/PSTN voice is not
  included in this package.
 
+Package: flowstation
+Version: 0.4.0+daily20260913.5.1.g0106c176d5ce-1~bookworm
+Architecture: amd64
+Maintainer: Razvan Zeces <razvan@zeces.ro>
+Installed-Size: 14254
+Depends: init-system-helpers (>= 1.54), libc6 (>= 2.35), libsoapysdr0.8 (>= 0.8.1)
+Filename: pool/bookworm/main/f/flowstation/flowstation_0.4.0+daily20260913.5.1.g0106c176d5ce-1~bookworm_amd64.deb
+Size: 3679372
+MD5sum: 1c21a039d764f2d29ac70a5cc0a4783a
+SHA1: a55936cb813f69dd164405236c87386581b49a77
+SHA256: d26c8656d66753b8d8bdd43390ec1e530838349c3f4a1964dd1067d311ddb142
+Section: comm
+Priority: optional
+Description: FlowStation software-defined TETRA base station
+ FlowStation TETRA base station (bluestation-bs) with a native Rust binary, a
+ systemd service and a default configuration. Configure it from the web
+ dashboard (http://flowstation.local once running). Requires a
+ SoapySDR-supported SDR (SXceiver) on the device. Asterisk SIP/PSTN voice is not
+ included in this package.
+
