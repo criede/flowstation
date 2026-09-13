@@ -1,22 +1,22 @@
 <!doctype html>
-<html lang="de">
+<html lang="en">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>FlowStation APT-Repository</title>
+<title>FlowStation APT repository</title>
 <style>
 body{font:16px/1.6 system-ui,sans-serif;max-width:54rem;margin:2rem auto;padding:0 1rem;color:#202124;background:white}pre{background:#f1f3f4;padding:1rem;overflow:auto}table{border-collapse:collapse}td,th{padding:.5rem 1rem;border:1px solid #bbb;text-align:left}a{color:#006a55}
 </style>
-<h1>FlowStation APT-Repository</h1>
-<p>Rust-TETRA-Basisstation, als Paket <code>flowstation</code> mit
-<code>bluestation-bs</code>, Konfigurationsvorlage und systemd-Dienst.
-Daily-Pakete sind Entwicklungsversionen. Asterisk und SDR-Hardwaretreiber
-sind nicht enthalten; der passende SoapySDR-Treiber muss installiert sein.</p>
-<table><tr><th>Debian / Raspberry Pi OS</th><th>Architekturen</th></tr>
+<h1>FlowStation APT repository</h1>
+<p>Rust TETRA base station packaged as <code>flowstation</code>, including
+<code>bluestation-bs</code>, a configuration template, and a systemd service.
+Daily packages are development builds. Asterisk and SDR hardware drivers are
+not included; install the appropriate SoapySDR driver separately.</p>
+<table><tr><th>Debian / Raspberry Pi OS</th><th>Architectures</th></tr>
 <tr><td>Bookworm (Debian 12)</td><td>amd64, arm64</td></tr>
 <tr><td>Trixie (Debian 13)</td><td>amd64, arm64</td></tr></table>
 <h2>Installation</h2>
-<p>Die URL unten gilt fuer <code>criede/flowstation</code>. Bei einem weiteren
-Fork muss sie an dessen Pages-Adresse angepasst werden.</p>
+<p>The URL below is for <code>criede/flowstation</code>. Another fork must use
+its own GitHub Pages address.</p>
 <pre><code>sudo install -d -m 0755 /etc/apt/keyrings
 curl -fsSL https://criede.github.io/flowstation/flowstation-archive-keyring.gpg \
   | sudo tee /etc/apt/keyrings/flowstation.gpg &gt; /dev/null
@@ -30,21 +30,21 @@ sudo apt install flowstation
 sudo editor /etc/flowstation/config.toml
 sudo systemctl enable --now bluestation-bs.service
 journalctl -u bluestation-bs.service -f</code></pre>
-<p>Vor dem ersten Start Frequenzen, Stationskennung und Hardware konfigurieren.
-Die Paketinstallation aktiviert und startet den Dienst nicht.</p>
-<h2>Versionen und Updates</h2>
-<p><code>sudo apt upgrade</code> installiert neuere Pakete.
-<code>apt list -a flowstation</code> zeigt verfuegbare Versionen.
-Mit <code>sudo apt install flowstation=VERSION</code> ist ein gezielter
-Rollback moeglich, mit <code>sudo apt-mark hold flowstation</code> eine Sperre.
-Daily-Pakete sortieren nach dem stabilen Release derselben Projektversion.</p>
-<p>Aufbewahrung: alle Dailys fuer 7 Tage, danach woechentlich bis 30 Tage,
-monatlich bis 365 Tage. Das neueste Daily und stabile Releases bleiben erhalten.</p>
-<h2>Repository-Dateien</h2>
-<p><a href="dists/">Distributionen und Paketindizes durchsuchen</a> &middot;
-<a href="pool/">Debian-Pakete durchsuchen</a></p>
-<p><a href="pubkey.gpg">ASCII-Signaturschluessel</a> &middot;
-<a href="flowstation-archive-keyring.gpg">Binaerer APT-Schluessel</a> &middot;
-<a href="https://github.com/criede/flowstation/releases">Releases und Pruefsummen</a> &middot;
-<a href="https://github.com/razvanzeces/flowstation/compare/main...criede:flowstation:main">Upstream-Vergleich</a></p>
+<p>Configure frequencies, station identity, and hardware before the first start.
+Package installation does not enable or start the service.</p>
+<h2>Versions and updates</h2>
+<p><code>sudo apt upgrade</code> installs newer packages.
+<code>apt list -a flowstation</code> lists available versions.
+Use <code>sudo apt install flowstation=VERSION</code> for a targeted rollback and
+<code>sudo apt-mark hold flowstation</code> to hold the installed version.
+Daily packages sort after the stable release of the same project version.</p>
+<p>Retention: every daily build for 7 days, then one per week through 30 days,
+and one per month through 365 days. The newest daily and stable releases remain.</p>
+<h2>Repository files</h2>
+<p><a href="dists/">Browse distributions and package indexes</a> &middot;
+<a href="pool/">Browse Debian packages</a></p>
+<p><a href="pubkey.gpg">ASCII-armored signing key</a> &middot;
+<a href="flowstation-archive-keyring.gpg">Binary APT keyring</a> &middot;
+<a href="https://github.com/criede/flowstation/releases">Releases and checksums</a> &middot;
+<a href="https://github.com/razvanzeces/flowstation/compare/main...criede:flowstation:main">Compare with upstream</a></p>
 </html>
