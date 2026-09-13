@@ -23,28 +23,28 @@ def display_size(size: int) -> str:
 def write_index(root: Path, directory: Path) -> None:
     relative = directory.relative_to(root)
     title = f"FlowStation APT / {relative.as_posix()}"
-    rows = ['<tr><td><a href="../">../</a></td><td>Verzeichnis</td><td></td></tr>']
+    rows = ['<tr><td><a href="../">../</a></td><td>Directory</td><td></td></tr>']
     entries = sorted(directory.iterdir(), key=lambda item: (not item.is_dir(), item.name.casefold()))
     for entry in entries:
         if entry.name == "index.html" or entry.name.startswith("."):
             continue
         label = entry.name + ("/" if entry.is_dir() else "")
         href = quote(entry.name) + ("/" if entry.is_dir() else "")
-        kind = "Verzeichnis" if entry.is_dir() else "Datei"
+        kind = "Directory" if entry.is_dir() else "File"
         size = "" if entry.is_dir() else display_size(entry.stat().st_size)
         rows.append(
             f'<tr><td><a href="{href}"><code>{html.escape(label)}</code></a></td>'
             f"<td>{kind}</td><td>{size}</td></tr>"
         )
     document = f"""<!doctype html>
-<html lang="de">
+<html lang="en">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{html.escape(title)}</title>
 <style>{STYLE}</style>
-<p><a href="{('../' * len(relative.parts))}">APT-Repository</a></p>
+<p><a href="{('../' * len(relative.parts))}">APT repository</a></p>
 <h1>{html.escape(title)}</h1>
-<table><thead><tr><th>Name</th><th>Typ</th><th>Groesse</th></tr></thead>
+<table><thead><tr><th>Name</th><th>Type</th><th>Size</th></tr></thead>
 <tbody>{''.join(rows)}</tbody></table>
 </html>
 """

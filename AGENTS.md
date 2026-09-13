@@ -20,6 +20,11 @@ scheduled merge source. Read README.md and Docs/DEVELOPMENT.md first.
 
 ## Before and after changes
 
+Write all repository-owned text in English, including documentation, comments,
+commit messages, workflow names and output, generated web pages, package text,
+and user-facing strings added by this fork. Preserve upstream text when merging;
+translate it only when this fork intentionally takes ownership of that text.
+
 Inspect the working tree and relevant callers before editing. Preserve unrelated
 changes and keep upstream merges separate from feature changes. Use the pinned
 rust-toolchain.toml and Cargo.lock. Do not update dependencies incidentally.

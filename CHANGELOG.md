@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Require all text owned by this fork, including generated pages and automation
+  output, to be written in English.
 - Add linked directory listings throughout the published `dists/` and `pool/`
   trees and link both browsers from the APT repository home page.
 - Add Rust-focused agent instructions, development documentation and pinned
