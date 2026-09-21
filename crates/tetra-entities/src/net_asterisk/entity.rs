@@ -554,7 +554,7 @@ impl AsteriskEntity {
             self.contact_uri(),
             identity_headers,
             auth_line,
-            body.as_bytes().len(),
+            body.len(),
             body
         ))
     }
@@ -639,7 +639,7 @@ impl AsteriskEntity {
             ctx.cseq,
             contact_line,
             content_type_line,
-            body_text.as_bytes().len(),
+            body_text.len(),
             body_text
         )
     }
