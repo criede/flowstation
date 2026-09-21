@@ -18,8 +18,8 @@ curl --proto '=https' --tlsv1.2 -fsSL https://sh.rustup.rs -o /tmp/rustup-init.s
 sh /tmp/rustup-init.sh -y --profile minimal --default-toolchain "$toolchain"
 export PATH="/root/.cargo/bin:$PATH"
 # Asterisk SIP/RTP bridge needs the native TETRA ACELP codec; build the latest
-# upstream main statically so the package has no extra runtime library dependency.
-git clone --depth 1 --branch main https://github.com/outerplane/tetra-codec /tmp/tetra-codec
+# upstream default branch statically so the package has no extra runtime library dependency.
+git clone --depth 1 https://github.com/outerplane/tetra-codec /tmp/tetra-codec
 cmake -S /tmp/tetra-codec -B /tmp/tetra-codec/build -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=OFF
 cmake --build /tmp/tetra-codec/build --parallel
 cmake --install /tmp/tetra-codec/build
