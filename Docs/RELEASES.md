@@ -119,7 +119,7 @@ journalctl -u bluestation-bs.service -f
 ```
 
 Install the SoapySDR module appropriate to the actual SDR separately. The
-default package excludes Asterisk/native tetra-codec. The packaged unit comes
+release package is built with the `asterisk` feature (native tetra-codec linked statically). The packaged unit comes
 from `contrib/packaging/bluestation-bs.service`; `contrib/systemd` is the
 source-install template with user-specific paths. The existing packaged service
 runs as root for hardware/scheduling and dashboard management; that behavior

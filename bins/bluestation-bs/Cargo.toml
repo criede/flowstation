@@ -35,7 +35,8 @@ workspace = true
 # ── Debian package (.deb) — built in CI by cargo-deb ───────────────────────────
 # Ships a native AMD64/ARM64 binary, the existing package service and a config.
 # Debian and Raspberry Pi users can install the package without compiling Rust.
-# Asterisk SIP voice is NOT in this package (default features; no native codec).
+# Built with the `asterisk` feature: the SIP/RTP bridge is included and the native
+# TETRA codec is linked statically in CI.
 # Runtime requirement: SoapySDR >= 0.8 and the SXceiver SoapySDR module must be
 # present on the device (provided by the image / your SDR setup).
 [package.metadata.deb]
@@ -50,7 +51,7 @@ extended-description = """\
 FlowStation TETRA base station (bluestation-bs) with a native Rust binary, a \
 systemd service and a default configuration. Configure it from the web dashboard \
 (http://flowstation.local once running). Requires a SoapySDR-supported SDR \
-(SXceiver) on the device. Asterisk SIP/PSTN voice is not included in this package."""
+(SXceiver) on the device. The Asterisk SIP/PSTN voice bridge is included."""
 conf-files = ["/etc/flowstation/config.toml"]
 assets = [
     ["target/release/bluestation-bs", "usr/bin/bluestation-bs", "755"],
