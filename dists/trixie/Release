@@ -1,0 +1,27 @@
+Architectures: amd64 arm64
+Codename: trixie
+Components: main
+Date: Mon, 21 Sep 2026 17:00:12 +0000
+Label: FlowStation
+Origin: FlowStation
+Suite: trixie
+MD5Sum:
+ 8845b06206f38b6991bdca0897916135              955 main/binary-amd64/Packages
+ dd97d1026b612d461c32118172e055c7              620 main/binary-amd64/Packages.gz
+ 510d9974d24c71dfc689720de901a57b              955 main/binary-arm64/Packages
+ 79d56899562b54b7ef5475a5cc89ec67              618 main/binary-arm64/Packages.gz
+SHA1:
+ 8ddc79d9cb352fa5b46e8737d8f97574ede48520              955 main/binary-amd64/Packages
+ d3ed7b609504aa411bccc9bf4d5b1cb5098f7ab4              620 main/binary-amd64/Packages.gz
+ 00836519da5af5134f55b8afd243ace2f672426d              955 main/binary-arm64/Packages
+ bff34ea79763b89586c2e5bc9cf12dfa50bc1779              618 main/binary-arm64/Packages.gz
+SHA256:
+ 495c35c5d605144bd8b2f243e2dfc3f26edcedba9eca2cb02624a0e51e5adfc0              955 main/binary-amd64/Packages
+ d968593090b10068990bda13ccbaf983763b91e6496c6c03cf6a041a2a006455              620 main/binary-amd64/Packages.gz
+ 0199da77cf8196924d91fcbb83e6fffa85bcb2da93b0a201196cd99f0080e150              955 main/binary-arm64/Packages
+ 46a745bd5878f0d1d65066b674ddc19efa634e0e73e7db691fecd913edc2bd8e              618 main/binary-arm64/Packages.gz
+SHA512:
+ e327dd3d169e3d53b18ec1da36f381d04cf957202d4ff4496fa92fb4e6cd0877e3e645ce35ae0a787c4640ec1c03de519c22984c1f5bdd79e31709f9412369b8              955 main/binary-amd64/Packages
+ 64d5111e213b8e56da92922d6ebfe4daf2066bf3c209af40f1d4829ab477f2d9e42da3f580f5a260291c57fe293cc33eeaa5126e45b0b90e3a2046a0082cbb4a              620 main/binary-amd64/Packages.gz
+ 394f2a8da8beb7a4631ecfa004cb338fd734566b7a05c22068e6727fa41c91aee89845d6f40b325b1228f9028852175e53e84c8c2a17ae6358632db126972e4b              955 main/binary-arm64/Packages
+ 8fbcea3208345e137d64268df676131f6c4c394d540b31d2be56bc03564c50d15f0c328fdd33ee4f616ac56b7b7cb4e4a1a0d05504888084040f5ab39e3172ec              618 main/binary-arm64/Packages.gz

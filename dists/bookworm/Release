@@ -1,0 +1,27 @@
+Architectures: amd64 arm64
+Codename: bookworm
+Components: main
+Date: Mon, 21 Sep 2026 17:00:12 +0000
+Label: FlowStation
+Origin: FlowStation
+Suite: bookworm
+MD5Sum:
+ ea57d544ff8865ca0b2ad7ae8df9a04a              961 main/binary-amd64/Packages
+ 77ab13db59035eba1785d00ef3434fe8              625 main/binary-amd64/Packages.gz
+ 07b93ceccdca2e2f324170ba218bebb5              961 main/binary-arm64/Packages
+ 1c5accd34ec5a792269333f89354369c              622 main/binary-arm64/Packages.gz
+SHA1:
+ 79a656206d612d2201976e022e6222c291e67121              961 main/binary-amd64/Packages
+ aaea279c70bc09d77fc7841f9de5a76c26cabe31              625 main/binary-amd64/Packages.gz
+ 0e228e0ba7313ae70f60ff9ee0a4a3a0c270efc3              961 main/binary-arm64/Packages
+ 349205e28d98cb27753b46bbbffb6ea187cf565e              622 main/binary-arm64/Packages.gz
+SHA256:
+ 86e04dbb50682e6150997bae8a286a54866a71e17e5482a1268d5275e388f607              961 main/binary-amd64/Packages
+ 920924a73454403d761fe742eb3c4bf709623f17f5e9bb260d244636bdc99f30              625 main/binary-amd64/Packages.gz
+ 203b439f0837502001c124ddadda7ecb6ca51eb4c23963e97cb719bb397afee7              961 main/binary-arm64/Packages
+ 4fa4660c63766319467d7c8150a1473590747bbb7b09b6bf1166852abd398bec              622 main/binary-arm64/Packages.gz
+SHA512:
+ d2ea38e68aee101129138f1383e5c4be6e66e5004bf5abcd09f505ce0eb6370c02b9437efb5f4f58db6b47a60292858247360015d87513b34a091542638c5330              961 main/binary-amd64/Packages
+ 25341643b53b456c1a4b1877e9993db2444d47cfcda68bb7f7bd2e77422035568f4efcbfcf6205b3626334fa55fb3aa81edad80df2b46e74b59bd7d868d9ac9b              625 main/binary-amd64/Packages.gz
+ 4d345d4fb1d30522f4f74855e37920c22d444c9e63ec521236a764611faec0a8e5d002b543f6766c23609902f843553db7316228112bf69203e4255666f3737f              961 main/binary-arm64/Packages
+ 9a609704b1a8cd0dadf80b6e2208a9c3c65e51451ef7da53de5961e08094d06d125d8b96fa09152e0c124e9a38e964a281d8238616a38c7211db4bcb8b038796              622 main/binary-arm64/Packages.gz
