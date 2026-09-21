@@ -25,6 +25,11 @@ class RetentionTests(unittest.TestCase):
                    ("stable", "0.4.0-1"), ("other", "daily-something-else")]
         self.assertEqual(expired(entries, self.today), [])
 
+    def test_time_stamped_daily_is_retained_by_date(self):
+        entries = [("a", "0.4.0+daily202609011230.000009.1.g0123456789ab-1"),
+                   ("b", "0.4.0+daily202609011330.000010.1.g0123456789ab-1")]
+        self.assertEqual(expired(entries, self.today), ["a"])
+
     def test_weekly_keeps_numerically_latest_run(self):
         entries = [("older", daily("20260901", 9)), ("newer", daily("20260901", 10))]
         self.assertEqual(expired(entries, self.today), ["older"])
@@ -66,8 +71,9 @@ class VersionTests(unittest.TestCase):
 
     def test_daily_is_unique_per_attempt(self):
         result = self.resolve(source=self.sha)
-        self.assertIn(".12.2.gaaaaaaaaaaaa-1", result["version"])
+        self.assertIn(".000012.2.gaaaaaaaaaaaa-1", result["version"])
         self.assertEqual(result["tag"], "daily-" + result["version"])
+        self.assertRegex(result["version"], r"\+daily\d{12}\.000012\.")
         self.assertEqual(result["prerelease"], "true")
 
     def test_mismatched_version_rejected(self):

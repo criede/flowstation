@@ -30,8 +30,9 @@ def main():
         version = f"{base}-{revision}"
         prerelease = "false"
     else:
-        stamp = dt.datetime.now(dt.timezone.utc).strftime("%Y%m%d")
-        run = os.environ["GITHUB_RUN_NUMBER"]
+        # Fixed-width UTC time and zero-padded run keep names sorted in build order.
+        stamp = dt.datetime.now(dt.timezone.utc).strftime("%Y%m%d%H%M")
+        run = os.environ["GITHUB_RUN_NUMBER"].zfill(6)
         attempt = os.environ["GITHUB_RUN_ATTEMPT"]
         version = f"{base}+daily{stamp}.{run}.{attempt}.g{sha[:12]}-1"
         tag = f"daily-{version}"

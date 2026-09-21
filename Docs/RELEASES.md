@@ -63,7 +63,7 @@ workspace version, then push it. Fork packaging revisions may use
 revision 1; start additional fork revisions at 2 to avoid a version collision.
 The manual `tag` input rebuilds an existing tag. Tags and source_sha must agree.
 
-Dailys use `0.4.0+dailyYYYYMMDD.RUN.ATTEMPT.gSHA-1~bookworm`. They become
+Dailys use `0.4.0+dailyYYYYMMDDHHMM.RUN.ATTEMPT.gSHA-1~bookworm`. They become
 prereleases, never Latest. They sort higher than the stable release of the same
 base version but lower than the next project version. The main APT component
 contains both; pin/hold a version to stay on a stable build.

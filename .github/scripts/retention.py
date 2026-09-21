@@ -7,7 +7,7 @@ import re
 import subprocess
 import sys
 
-DAILY = re.compile(r"\+daily(\d{8})\.(\d+)\.(\d+)\.g[0-9a-f]{12}-1(?:~(?:bookworm|trixie))?$")
+DAILY = re.compile(r"\+daily(\d{8})(?:\d{4})?\.(\d+)\.(\d+)\.g[0-9a-f]{12}-1(?:~(?:bookworm|trixie))?$")
 
 
 def expired(entries, today=None):
