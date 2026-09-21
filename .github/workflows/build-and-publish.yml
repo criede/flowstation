@@ -94,7 +94,8 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p "$RUNNER_TEMP/packages"
-          gh release download "$RELEASE_TAG" --dir "$RUNNER_TEMP/packages" --pattern "*_${VERSION}~*"
+          # GitHub stores "~" in asset names as "."
+          gh release download "$RELEASE_TAG" --dir "$RUNNER_TEMP/packages" --pattern "*_${VERSION}.*"
       - name: Install repository tools
         run: sudo apt-get update -qq && sudo apt-get install -y --no-install-recommends gnupg dpkg-dev apt-utils
       - name: Import signing key into isolated keyring
